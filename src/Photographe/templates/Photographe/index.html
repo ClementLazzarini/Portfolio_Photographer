@@ -1,0 +1,59 @@
+{% extends 'Photographe/base.html' %}
+
+{% block content %}
+    <main>
+        <section class="home1">
+            <div class="home1-slide">
+                {% for mediaslide in mediaslides %}
+                    <img src="{{ mediaslide.thumbnail.url }}" alt="">
+                {% endfor %}
+            </div>
+            <div class="home1-fleches">
+                <div>
+                    <img src="../static/Photographe/img/arrow.png" alt="Flèche vers le bas" class="arrow-l">
+                    <img src="../static/Photographe/img/arrow.png" alt="Flèche vers le bas" class="arrow-r">
+                </div>
+            </div>
+            <p id="image-counter">01/05</p>
+            <img src="../static/Photographe/img/arrow.png" alt="Flèche vers le bas" class="arrow">
+        </section>
+        <section class="home2">
+            <p>Chaque instant mérite une attention particulière, c'est pourquoi j'aime la photographie. Que ce soit pour des séances individuelles, des événements en famille ou d'autres occasions, je m'efforce d'offrir des services photographiques de qualité à des tarifs abordables. J'ai hâte d'immortaliser vos souvenirs à travers mon objectif.</p>
+
+            <div class="home2-grid">
+                {% for mediacard in mediacards %}
+                    <div class="home2-card">
+                        <img src="{{ mediacard.thumbnail.url }}" alt="">
+                    <h2>{{mediacard.title}}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="home3">
+            <h2>Témoignages</h2>
+            <div class="home3-diapo">
+                <div class="home3-slide">
+                    {% for mediareview in mediareviews %}
+                        <div class="home3-card">
+                            <img src="{{ mediareview.thumbnail.url }}" alt="">
+                            <h3>{{mediareview.title}}</h3>
+                            <pre>{{mediareview.review}}</pre>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="home3-fleches">
+                <div>
+                    <img src="../static/Photographe/img/black-arrow.png" alt="Flèche vers le bas" class="arrow-l3">
+                    <img src="../static/Photographe/img/black-arrow.png" alt="Flèche vers le bas" class="arrow-r3">
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+
+{% block javascript %}
+    <script type="text/javascript" src="../static/Photographe/js/slide.js"></script>
+    <script type="text/javascript" src="../static/Photographe/js/slide-temoignages.js"></script>
+{% endblock %}
