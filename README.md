@@ -21,7 +21,7 @@ This website is a portfolio for a photographer developed with the Django web fra
 
 ## Installation and Usage
 
-1. Clone this repository: `git clone https://github.com/yourusername/portfolio-project.git`
+1. Clone this repository: `git clone https://github.com/ClementLazzarini/Portfolio_Photographer.git`
 2. Create a virtual environment: `python -m venv venv`
 3. Activate the virtual environment: `source venv/bin/activate` (Linux/macOS) or `venv\Scripts\activate` (Windows)
 4. Install dependencies: `pip install -r requirements.txt`
