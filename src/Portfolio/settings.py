@@ -25,9 +25,10 @@ environ.Env.read_env(env_file=str(BASE_DIR / "Portfolio" / ".env"))
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", False)
+DEBUG = env.bool("DEBUG", True)
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+# Version CORRECTE
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 

@@ -1,0 +1,19 @@
+# Fichiers de configuration de l'OS et des IDE
+.DS_Store
+.idea/
+
+# Environnement virtuel Python
+venv/
+*.pyc
+__pycache__/
+
+# Base de données locale
+db.sqlite3
+
+# Fichiers de dépendances et de build
+*.egg-info/
+dist/
+build/
+
+# Fichiers de secrets (si tu en utilises)
+.env
