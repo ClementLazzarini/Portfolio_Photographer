@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Clément Lazzarini">
+    <link rel="stylesheet" href="{% static 'Photographe/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Photographe/css/lightbox.css' %}">
+    <script type="module" src="{% static 'Photographe/js/lightbox.js' %}" defer></script>
+    <script type="text/javascript" src="{% static 'Photographe/js/email.js'%}" defer></script>
+    <title>GOUGNON Jeannot Moise</title>
+    <meta name="description" content="Explorez l'art de la photographie avec un photographe. Capturant chaque instant avec passion et créativité. Découvrez mes tarifs abordables pour des séances individuelles et des événements spéciaux. Laissez-moi transformer vos moments en souvenirs intemporels. Réservez dès maintenant pour des photos qui racontent votre histoire.">
+    <!--<link rel="icon" href="img/Logo-white-png.png">-->
+</head>
+<body>
+    <header>
+        <nav class="menu-container">
+            <!-- burger menu -->
+            <input type="checkbox" aria-label="Toggle menu" />
+            <span></span>
+            <span></span>
+            <span></span>
+          
+            <!-- logo -->
+            <a href="{% url 'home' %}" class="menu-logo">
+              <p style="color: white;">GOUGNON<br>Jeannot Moise</p>
+            </a>
+          
+            <!-- menu items -->
+            <div class="menu">
+              <ul>
+              </ul>
+              <ul>
+                <li><a href="{% url 'home' %}">Acceuil</a></li>
+                <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                <li><a href="{% url 'tarif' %}">Tarifs</a></li>
+                <li><a href="{% url 'presentation' %}">Présentation</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <h2>Contact</h2>
+        <form method="post" id="contact-form" class="contact-form">
+
+            <input type="text" id="lastname" name="nom" placeholder="Nom" required minlength="2"/>
+
+            <input type="text" id="firstname" name="prenom" placeholder="Prénom" required minlength="2"/>
+
+            <input type="email" id="email" name="email" placeholder="exemple@mail.com" required/>
+
+            <input type="text" id="subject" name="objet" placeholder="Sujet de la demande" required/>
+
+            <textarea id="message" name="message"  placeholder="Bonjour, je vous contact car..." required></textarea>
+            
+            <button type="submit" class="btn-envoi glow-on-hover" name="button">Envoyer mon message</button>
+        </form>
+
+
+        
+        
+        
+
+        <div class="footer-plan">
+            <div>
+                <h4>Plan du site</h4>
+                <a href="#accueil">Accueil</a>
+                <a href="#presentation">Présentation</a>
+                <a href="#realisations">Réalisations</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div>
+                <h4>Réseaux sociaux</h4>
+                <a href="#" target="_blank"><img src="" alt="">Instagram</a>
+                <a href="#" target="_blank"><img src="" alt="">Pinterest</a>
+                <a href="#"><img src="" alt="">Facebook</a>
+            </div>
+            <div class="iframe">
+                <h4>Où sommes-nous ?</h4>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92457.01789457504!2d1.3504417967844733!3d43.60067365893831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse!5e0!3m2!1sfr!2sfr!4v1693308652986!5m2!1sfr!2sfr" width="100%" style="border:0; max-width: 50rem; aspect-ratio: 16/9; margin-top: 0.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="footer-end">
+            <p>Copyright ©<a href="www.clementlazzarini.com">Clément Lazzarini</a></p>
+            <a href="{% url 'home' %}"><p>GOUGNON<br>Jeannot Moise</p></a>
+            <a href="{% url 'mentions' %}">Mentions légales</a>
+        </div>
+    </footer>
+    
+    {% block javascript %}
+    {% endblock %}
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</body>
+</html>

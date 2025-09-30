@@ -1,0 +1,46 @@
+{% extends 'Photographe/base.html' %}
+
+{% block content %}
+<main class="portfolio">
+    <h1>Portfolio</h1>
+    <div class="select">
+        <select name="category" id="category-select">
+            <option value="">-- Choisissez une catégorie --</option>
+            {% for categorie in categories %}
+                <option value="{{ categorie.name }}" {% if selected_category == categorie.name %}selected{% endif %}>{{ categorie.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <section class="portfolio-grid">
+        {% for media in medias %}
+        {% if media.media_type == 'photo' %}
+        <a href="{{ media.thumbnail.url }}">
+            <img src="{{ media.thumbnail.url }}" alt="{{ media.title }}">
+        </a>
+        {% else %}
+        <a href="{{ media.file.url }}">
+            <video controls>
+                <source src="{{ media.file.url }}" type="video/mp4" />
+                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
+              </video>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
+
+
+{% block javascript %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const categorySelect = document.getElementById('category-select');
+    categorySelect.addEventListener('change', function () {
+        const selectedCategory = categorySelect.value;
+        window.location.href = `/portfolio/?category=${selectedCategory}`;
+    });
+});
+</script>
+
+{% endblock %}

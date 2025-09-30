@@ -1,0 +1,25 @@
+{% extends 'Photographe/base.html' %}
+
+{% block content %}
+<main>
+    <section class="pres">
+        <h1>Qui suis-je ?</h1>
+        {% for presentation in presentations %}
+        <div class="pres-grid">
+            <img src="{{ presentation.thumbnail.url }}" alt="">
+            <div class="pres-text">
+                <div class="pres-text-box">
+                    <p>{{ presentation.para_1 }}</p>
+                    <p>{{ presentation.para_2 }}</p>
+                    <p style="text-align: end; margin-top: 2rem; font-family: 'Tangerine', cursive; font-size: 2rem;">{{ presentation.signature }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
+
+
+{% block javascript %}
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'Photographe/base.html' %}
+
+{% block content %}
+<main class="tarif">
+    <h1>Tarifs</h1>
+    <p>Chaque instant mérite une attention particulière, c'est pourquoi j'ai conçu des forfaits variés qui s'adaptent à vos besoins. Que ce soit pour des séances individuelles, des événements en famille ou d'autres occasions, je m'efforce d'offrir des services photographiques de qualité à des tarifs abordables. Parcourez mes offres et choisissez celle qui résonne avec vous. J'ai hâte d'immortaliser vos souvenirs à travers mon objectif.</p>
+
+    <div class="tarif-container">
+        {% for tarif in tarifs %}
+        {% if tarif.inverse == False %}
+        <div class="tarif-card">
+            <img src="{{ tarif.thumbnail.url }}" alt="">
+            <div class="tarif-text-box">
+                <div class="tarif-text">
+                    <h2>{{ tarif.title }}</h2>
+                    <p>{{ tarif.description }}</p>
+                    <div class="tarif-price">
+                        <p>{{ tarif.time }} / {{ tarif.pictures_nb }} Photos</p>
+                        <p>{{ tarif.price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="tarif-card grid-left">
+            <div class="tarif-text-box">
+                <div class="tarif-text">
+                    <h2>{{ tarif.title }}</h2>
+                    <p>{{ tarif.description }}</p>
+                    <div class="tarif-price">
+                        <p>{{ tarif.time }} / {{ tarif.pictures_nb }} Photos</p>
+                        <p>{{ tarif.price }}</p>
+                    </div>
+                </div>
+            </div>
+            <img src="{{ tarif.thumbnail.url }}" alt="">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
+
+
+{% block javascript %}
+{% endblock %}
