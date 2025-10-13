@@ -13,21 +13,26 @@
     </div>
 
     <section class="portfolio-grid">
-        {% for media in medias %}
-        {% if media.media_type == 'photo' %}
-        <a href="{{ media.thumbnail.url }}">
-            <img src="{{ media.thumbnail.url }}" alt="{{ media.title }}">
-        </a>
-        {% else %}
-        <a href="{{ media.file.url }}">
-            <video controls>
-                <source src="{{ media.file.url }}" type="video/mp4" />
-                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
-              </video>
-        </a>
+    {% for media in medias %}
+        {% if media.media_type == 'image' %}
+            {% if media.image %}
+            <a href="{{ media.image.url }}">
+                <img src="{{ media.image.url }}" alt="{{ media.title }}">
+            </a>
+            {% endif %}
+        {% elif media.media_type == 'video' %}
+            {% if media.video %}
+            <a href="{{ media.video.url }}">
+                <video controls>
+                    <source src="{{ media.video.url }}" type="video/mp4" />
+                    <p>Votre navigateur ne prend pas en charge les vidéos HTML5.</p>
+                </video>
+            </a>
+            {% endif %}
         {% endif %}
-        {% endfor %}
-    </section>
+    {% endfor %}
+</section>
+
 </main>
 {% endblock %}
 
