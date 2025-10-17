@@ -425,6 +425,7 @@ html{
     height: 60vh;
     object-fit: cover;
     margin: 0 auto;
+    border-radius: 1rem;
 }
 
 .pres-text-box{

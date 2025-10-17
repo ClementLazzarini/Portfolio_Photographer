@@ -22,10 +22,10 @@
 
             <div class="home2-grid">
                 {% for mediacard in mediacards %}
-                    <div class="home2-card">
-                        <img src="{{ mediacard.thumbnail.url }}" alt="">
-                    <h2>{{mediacard.title}}</h2>
-                </div>
+                    <a href="{% url 'tarif' %}" class="home2-card">
+                        <img src="{{ mediacard.thumbnail.url }}" alt="#">
+                        <h2>{{mediacard.title}}</h2>
+                    </a>
                 {% endfor %}
             </div>
         </section>
