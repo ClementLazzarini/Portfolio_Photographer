@@ -44,7 +44,7 @@
     {% block content %}
     {% endblock %}
     <footer>
-        <h2>Contact</h2>
+        <h2 id="contact">Contact</h2>
         <form method="post" id="contact-form" class="contact-form">
 
             <input type="text" id="lastname" name="nom" placeholder="Nom" required minlength="2"/>
@@ -68,9 +68,9 @@
         <div class="footer-plan">
             <div>
                 <h4>Plan du site</h4>
-                <a href="#accueil">Accueil</a>
-                <a href="#presentation">Présentation</a>
-                <a href="#realisations">Réalisations</a>
+                <a href="{% url 'home' %}">Accueil</a>
+                <a href="{% url 'presentation' %}">Présentation</a>
+                <a href="{% url 'portfolio' %}">Réalisations</a>
                 <a href="#contact">Contact</a>
             </div>
             <div>
